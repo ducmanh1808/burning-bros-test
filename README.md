@@ -1,55 +1,26 @@
 # burning-bros-test
+## HOW TO RUN
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+- `yarn install` then `yarn dev`
 
-```sh
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-```
+**Coding Project (React with TypeScript): Infinite Scrolling and Searchable Product List**
 
-## Goals
+You have been assigned a task to implement an infinite scrolling list of products in a **React project written in TypeScript**. The product data will be fetched from an API. Additionally, you need to provide a search functionality that allows users to search for products by name.
 
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
+***Requirements***
 
-## Scripts
+**Using this [product api](https://dummyjson.com/docs/products) to implement the infinite scrolling list for display list of products.**
 
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
+1. Each time the user **scrolls to the end of the list, fetch the next 20 products**.
+2. **Display the list of products** with relevant information (e.g., name, price, image).
+    1. Keep the design as simple as possible. Please note that the **design will not be evaluated.**
+3. Implement an **input for searching product name** (using */products/search?q* ). 
+Whenever user typing, fetch data and update the product list.
+4. Products data should be deserialized after fetched from api. 
 
-## Inspiration
+**Your Task:**
 
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+- Your task is to complete the implementation of the **React** component(s) necessary to achieve the above requirements.
+- You are **free to use any additional libraries or tools as needed.**
 
-Technical Requirements:
-
-✅ React + TypeScript: Write clean code with strict type checking.
-✅ Redux Toolkit (createSlice): Manage state in a structured and scalable way.
-✅ Vite: Use for project setup and performance optimization.
-✅ Axios (with JWT authentication): Create an axios.ts file to handle API calls, error management, and token handling.
-✅ Custom Hooks: Implement reusable hooks, such as useLocalStorage.ts and useTable.ts.
-✅ Framer Motion: Add animations to enhance UI/UX.
-✅ Well-structured project architecture: Clearly separate UI, state, and business logic for better maintainability.
-
-Task Requirements:
-
-1️⃣ Create a main page with a simple UI:
-- Display a list of data fetched from a mock API.
-- Include filtering/sorting functionality (use custom hooks where applicable).
-2️⃣ Manage state using Redux Toolkit:
-- Store API data in the Redux store.
-- Use createSlice to define reducers and actions.
-3️⃣ Handle API requests
-4️⃣ Use Framer Motion for animations:
-5️⃣ Maintain clear and scalable code structure:
-- Organize files by module (UI, state, business logic).
-- Utilize custom hooks to improve reusability.
-
-Notes:
-- Candidates do not need a backend and can use a mock API (e.g., json-server or a mock API service like Mockaroo).
-- The code should include proper comments to help the evaluation team understand the implementation.
+Please **structure your code in a clean and maintainable manner**. It should demonstrate your understanding of **React**, TypeScript, API integration, and handling state updates efficiently.

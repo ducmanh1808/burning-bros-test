@@ -1,6 +1,5 @@
-import { PropsWithChildren } from "react"
-import styles from "./AppContent.module.css"
+import type { PropsWithChildren } from "react"
 
 export const AppContent: React.FC<PropsWithChildren> = ({ children }) => {
-  return <div className={styles.appContent}>{children}</div>
+  return <div className="flex items-center justify-center p-12">{children}</div>
 }

@@ -44,7 +44,7 @@ export interface Product {
   images: string[]
 }
 
-interface ProductResponse {
+export interface ProductResponse {
   products: Product[]
   total: number
   skip: number

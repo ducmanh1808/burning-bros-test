@@ -1,62 +1,57 @@
-import React, { useState } from "react";
-import styles from '../style/Products.module.css'
-import { ProductTable } from "./ProductTable";
+import { MotionCard } from "features/products/components/MotionCard"
+import { ProductCard } from "features/products/components/ProductCard"
+import { ImSpinner2 } from "react-icons/im"
+import InfiniteScroll from "react-infinite-scroll-component"
+import type { Product } from "types"
 
-export const ProductList = () => {
-    const [items, setItems] = useState([]);
-    const [page, setPage] = useState(0);
-    const { data, isFetching, refetch } = useGetPokemonByNameQuery(page);
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: "Name",
-        columns: [
-          {
-            Header: "First Name",
-            accessor: "firstName"
-          },
-          {
-            Header: "Last Name",
-            accessor: "lastName"
-          }
-        ]
-      },
-      {
-        Header: "Info",
-        columns: [
-          {
-            Header: "Age",
-            accessor: "age"
-          },
-          {
-            Header: "Visits",
-            accessor: "visits"
-          },
-          {
-            Header: "Status",
-            accessor: "status"
-          },
-          {
-            Header: "Profile Progress",
-            accessor: "progress"
-          }
-        ]
-      }
-    ],
-    []
-  );
+type ProductListProps = {
+  dataSource: Product[]
+  isLoading: boolean
+  total: number
+  fetchMore: () => void
+}
 
-  const fetchMoreData = () => {
-    setTimeout(() => {
-      setItems(items.concat([]));
-    }, 1500);
-  };
+export const ProductList: React.FC<ProductListProps> = ({
+  dataSource,
+  isLoading,
+  total,
+  fetchMore,
+}) => {
+  const totalFetched = dataSource?.length ?? 0
 
-  const data = React.useMemo(() => items, [items]);
+  if (isLoading) {
+    return (
+      <div className="w-full">
+        <ImSpinner2 className="m-auto text-gray-400 animate-spin" size={48} />
+      </div>
+    )
+  }
 
   return (
-    <div className={styles.container}>
-      <ProductTable columns={columns} dataSource={data} update={fetchMoreData} />
-    </div>
-  );
+    <>
+      <div className="text-right text-sm mb-1 text-gray-400">
+        {totalFetched} of {total} products
+      </div>
+      <InfiniteScroll
+        dataLength={totalFetched}
+        next={fetchMore}
+        hasMore={totalFetched < total}
+        loader={
+          <div className="w-full p-2">
+            <ImSpinner2
+              className="m-auto text-gray-400 animate-spin"
+              size={24}
+            />
+          </div>
+        }
+        className="flex flex-col gap-4 !overflow-x-hidden"
+      >
+        {dataSource?.map(item => (
+          <MotionCard key={item.id}>
+            <ProductCard {...item} />
+          </MotionCard>
+        ))}
+      </InfiniteScroll>
+    </>
+  )
 }
