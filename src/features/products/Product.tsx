@@ -7,7 +7,7 @@ export const Product = () => {
     useProducts()
 
   return (
-    <div className="w-full px-48 text-center">
+    <div className="w-full px-0 md:px-12 lg:px-24 xl:px-48 text-center">
       <h1 className="font-bold text-5xl">Products</h1>
       <ProductSearch handleSearch={handleSearch} />
       <ProductList

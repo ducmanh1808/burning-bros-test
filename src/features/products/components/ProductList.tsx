@@ -29,7 +29,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 
   return (
     <>
-      <div className="text-right text-sm mb-1 text-gray-400">
+      <div className="text-right text-sm mb-1 text-gray-400 fixed bottom-0 right-4 z-10">
         {totalFetched} of {total} products
       </div>
       <InfiniteScroll

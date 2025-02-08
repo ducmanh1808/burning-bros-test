@@ -1,4 +1,3 @@
-import "./App.css"
 import { AppContent } from "layout/AppContent"
 import { Product } from "features/products/Product"
 
